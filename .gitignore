@@ -21,6 +21,10 @@
 *.war
 *.ear
 
+.mvn/wrapper
+mvnw
+mvnw.cmd
+
 ### NetBeans ###
 /nbproject/private/
 /build/
