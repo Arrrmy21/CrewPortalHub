@@ -3,7 +3,7 @@
     <display-name>Display-name tag</display-name>
 
     <welcome-file-list>
-        <welcome-file>login.do</welcome-file>
+        <welcome-file>welcome</welcome-file>
     </welcome-file-list>
 
     <servlet>
@@ -11,11 +11,11 @@
         <servlet-class>webapp.LoginServlet</servlet-class>
     </servlet>
 
-
-
     <servlet-mapping>
         <servlet-name>myservlet</servlet-name>
-        <url-pattern>/aaa</url-pattern>
+        <url-pattern>/mainpage</url-pattern>
     </servlet-mapping>
+
+
 
 </web-app>

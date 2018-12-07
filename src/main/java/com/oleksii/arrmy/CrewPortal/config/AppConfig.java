@@ -5,10 +5,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class SpringConfig {
+public class AppConfig {
 
     @Bean
     public Worker getWorker(){
-        return new Worker("Alex", 10);
+        return null;
     }
 }

@@ -1,9 +1,20 @@
 package com.oleksii.arrmy.CrewPortal.model;
 
+import org.springframework.context.annotation.Primary;
+import org.springframework.data.annotation.Id;
+import org.springframework.stereotype.Component;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import java.util.Objects;
 
+@Entity(name = "Worker")
 public class Worker {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String name;
     private String location;
     private int phoneNumber;
@@ -12,21 +23,13 @@ public class Worker {
     private int yearIncome;
     private String maritalStatus;
 
-    public Worker() {
+
+    public int getId() {
+        return id;
     }
 
-    public Worker(String name, String location, int phoneNumber, int age, int yearIncome, String maritalStatus) {
-        this.name = name;
-        this.location = location;
-        this.phoneNumber = phoneNumber;
-        this.age = age;
-        this.yearIncome = yearIncome;
-        this.maritalStatus = maritalStatus;
-    }
-
-    public Worker(String name, int age) {
-        this.name = name;
-        this.age = age;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
