@@ -9,15 +9,15 @@
     <body>
         <p>Allowed actions:</p>
 
-        <form action="/CrewPortal-0.0.1-SNAPSHOT/addworker">
+        <form action="/CrewPortal-0.0.1-SNAPSHOT/worker">
             <input type="submit" value = "add worker">
         </form>
 
-        <form action="/CrewPortal-0.0.1-SNAPSHOT/showWorkers">
+        <form action="/CrewPortal-0.0.1-SNAPSHOT/showWorkers.jsp">
             <input type="submit" value = "show workers">
         </form>
 
-        <form action="/CrewPortal-0.0.1-SNAPSHOT/location">
+        <form action="/CrewPortal-0.0.1-SNAPSHOT/location.jsp">
             <input type="submit" value = "location">
 
             <table>

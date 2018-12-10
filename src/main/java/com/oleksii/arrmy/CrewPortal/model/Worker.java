@@ -1,12 +1,9 @@
 package com.oleksii.arrmy.CrewPortal.model;
 
-import org.springframework.context.annotation.Primary;
-import org.springframework.data.annotation.Id;
-import org.springframework.stereotype.Component;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Objects;
 
 @Entity(name = "Worker")
@@ -80,16 +77,4 @@ public class Worker {
         this.maritalStatus = maritalStatus;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Worker worker = (Worker) o;
-        return Objects.equals(name, worker.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name);
-    }
 }
