@@ -4,17 +4,21 @@ import com.oleksii.arrmy.CrewPortal.model.Worker;
 import com.oleksii.arrmy.CrewPortal.service.WorkerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
 @RestController
 public class WorkerController {
 
     @Autowired
     private WorkerService workerService;
+
+    @PostMapping("/worker")
+    public String myMethod(@RequestBody Worker worker){
+        String respName = "ALOBL" + worker.getName();
+        return respName;
+    }
 
     @PostMapping("/worker/add")
     public ResponseEntity<?> save(@RequestBody Worker worker){

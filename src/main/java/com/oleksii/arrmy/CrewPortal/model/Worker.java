@@ -4,9 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.util.Objects;
 
-@Entity(name = "Worker")
+
+//@Entity(name = "Worker")
 public class Worker {
 
     @Id
@@ -19,7 +19,6 @@ public class Worker {
     private int age;
     private int yearIncome;
     private String maritalStatus;
-
 
     public int getId() {
         return id;

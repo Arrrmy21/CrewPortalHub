@@ -3,6 +3,7 @@ package com.oleksii.arrmy.CrewPortal.dao;
 
 import com.oleksii.arrmy.CrewPortal.model.Worker;
 
+import java.util.HashMap;
 import java.util.List;
 
 public interface WorkerDAO {

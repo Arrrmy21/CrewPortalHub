@@ -9,7 +9,7 @@
     <body>
         <p>Allowed actions:</p>
 
-        <form action="/CrewPortal-0.0.1-SNAPSHOT/worker">
+        <form action="/CrewPortal-0.0.1-SNAPSHOT/worker/add">
             <input type="submit" value = "add worker">
         </form>
 
