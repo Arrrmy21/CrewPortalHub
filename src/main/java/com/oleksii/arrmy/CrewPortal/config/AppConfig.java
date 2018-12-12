@@ -6,7 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan(basePackages = {"com.oleksii.arrmy.CrewPortal.service", "com.oleksii.arrmy.CrewPortal.dao"})
+@ComponentScan(basePackages = { "com.oleksii.arrmy.CrewPortal.service", "com.oleksii.arrmy.CrewPortal.dao"})
 public class AppConfig {
 
     @Bean
