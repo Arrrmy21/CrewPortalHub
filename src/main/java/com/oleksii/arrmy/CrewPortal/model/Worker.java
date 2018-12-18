@@ -3,7 +3,7 @@ package com.oleksii.arrmy.CrewPortal.model;
 import javax.persistence.*;
 
 
-@Entity(name = "Worker")
+@Entity
 public class Worker {
 
     @Id

@@ -9,32 +9,50 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import java.util.Properties;
 
-import static org.hibernate.cfg.AvailableSettings.*;
+import static org.hibernate.cfg.Environment.*;
 
 @Configuration
 @PropertySource("classpath:db.properties")
 @EnableTransactionManagement
-@ComponentScans(value = {@ComponentScan( "com.oleksii.arrmy.CrewPortal.service"),
-        @ComponentScan( "com.oleksii.arrmy.CrewPortal.dao") })
+@ComponentScans(value = {@ComponentScan("com.oleksii.arrmy.CrewPortal.service"),
+        @ComponentScan("com.oleksii.arrmy.CrewPortal.dao")})
 public class AppConfig {
 
     @Autowired
     private Environment env;
 
     @Bean
-    public LocalSessionFactoryBean getSessionFactory(){
+    public LocalSessionFactoryBean getSessionFactory() {
 
         LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
 
         Properties properties = new Properties();
 
-        properties.put(DRIVER, env.getProperty("DB.driver"));
-        properties.put(URL, env.getProperty("DB.url"));
-        properties.put(USER, env.getProperty("DB.user"));
-        properties.put(PASS, env.getProperty("DB.password"));
+        properties.put(DRIVER, env.getProperty("db.driver"));
+        properties.put(URL, env.getProperty("db.url"));
+        properties.put(USER, env.getProperty("db.user"));
+        properties.put(PASS, env.getProperty("db.password"));
 
-//        properties.put(SHOW_SQL, env.getProperty("hibernate.show_sql"));
-//        properties.put(HBM2DDL_AUTO, env.getProperty("hibernate.hbm2ddl.auto"));
+        properties.put(SHOW_SQL, env.getProperty("hibernate.show_sql"));
+        properties.put(HBM2DDL_AUTO, env.getProperty("hibernate.hbm2ddl.auto"));
+
+        properties.put("spring.jpa.show-sql", true);
+        properties.put("spring.jpa.properties.hibernate.temp.use_jdbc_metadata_defaults", false);
+        properties.put("spring.jpa.hibernate.ddl-auto", "none");
+        properties.put("spring.jpa.properties.hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
+
+
+
+        // Setting C3P0 properties
+        properties.put(C3P0_MIN_SIZE, env.getProperty("hibernate.c3p0.min_size"));
+        properties.put(C3P0_MAX_SIZE, env.getProperty("hibernate.c3p0.max_size"));
+        properties.put(C3P0_ACQUIRE_INCREMENT,
+                env.getProperty("hibernate.c3p0.acquire_increment"));
+        properties.put(C3P0_TIMEOUT, env.getProperty("hibernate.c3p0.timeout"));
+        properties.put(C3P0_MAX_STATEMENTS, env.getProperty("hibernate.c3p0.max_statements"));
+
+        properties.put(JTA_PLATFORM_RESOLVER, env.getProperty("spring.jpa.database-platform"));
+        properties.put(NON_CONTEXTUAL_LOB_CREATION,false);
 
         factoryBean.setHibernateProperties(properties);
         factoryBean.setPackagesToScan("com.oleksii.arrmy.CrewPortal.model");
@@ -43,7 +61,7 @@ public class AppConfig {
     }
 
     @Bean
-        public HibernateTransactionManager getTransactionManager() {
+    public HibernateTransactionManager getTransactionManager() {
         HibernateTransactionManager transactionManager = new HibernateTransactionManager();
         transactionManager.setSessionFactory(getSessionFactory().getObject());
         return transactionManager;
