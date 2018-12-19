@@ -36,13 +36,6 @@ public class AppConfig {
         properties.put(SHOW_SQL, env.getProperty("hibernate.show_sql"));
         properties.put(HBM2DDL_AUTO, env.getProperty("hibernate.hbm2ddl.auto"));
 
-        properties.put("spring.jpa.show-sql", true);
-        properties.put("spring.jpa.properties.hibernate.temp.use_jdbc_metadata_defaults", false);
-        properties.put("spring.jpa.hibernate.ddl-auto", "none");
-        properties.put("spring.jpa.properties.hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
-
-
-
         // Setting C3P0 properties
         properties.put(C3P0_MIN_SIZE, env.getProperty("hibernate.c3p0.min_size"));
         properties.put(C3P0_MAX_SIZE, env.getProperty("hibernate.c3p0.max_size"));
@@ -51,9 +44,8 @@ public class AppConfig {
         properties.put(C3P0_TIMEOUT, env.getProperty("hibernate.c3p0.timeout"));
         properties.put(C3P0_MAX_STATEMENTS, env.getProperty("hibernate.c3p0.max_statements"));
 
-        properties.put(JTA_PLATFORM_RESOLVER, env.getProperty("spring.jpa.database-platform"));
-        properties.put(NON_CONTEXTUAL_LOB_CREATION,false);
-
+        properties.put(NON_CONTEXTUAL_LOB_CREATION, true);
+        properties.put(DIALECT, env.getProperty("spring.jpa.database-platform"));
         factoryBean.setHibernateProperties(properties);
         factoryBean.setPackagesToScan("com.oleksii.arrmy.CrewPortal.model");
 
