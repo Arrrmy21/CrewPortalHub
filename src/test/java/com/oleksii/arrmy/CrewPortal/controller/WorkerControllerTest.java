@@ -2,7 +2,6 @@ package com.oleksii.arrmy.CrewPortal.controller;
 
 import com.oleksii.arrmy.CrewPortal.model.Worker;
 import com.oleksii.arrmy.CrewPortal.service.WorkerService;
-import com.oleksii.arrmy.CrewPortal.service.WorkerServiceImp;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
