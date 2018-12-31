@@ -8,6 +8,6 @@ public class CrewPortalApplication {
 
 	public static void main(String[] args){
 		SpringApplication.run(CrewPortalApplication.class, args);
-
 	}
+
 }
