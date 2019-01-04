@@ -8,11 +8,11 @@
     </head>
     <body>
 
-        <form action="/CrewPortal-0.0.1-SNAPSHOT/showWorkers">
+        <form action="/worker/list">
             <input type="submit" value = "show workers">
         </form>
 
-        <form action="/CrewPortal-0.0.1-SNAPSHOT/worker/add" method = "post">
+        <form action="addWorker" method = "post">
           <p>Fill in:</p>
            <p><input type="text" name = "name" placeholder="name">
            <p><input type="text" name = "age" placeholder="age">

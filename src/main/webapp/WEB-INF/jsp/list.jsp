@@ -7,7 +7,9 @@
         </title>
     </head>
     <body>
-        <p>List of workers</p>
+        <p>List of workers:
+        ${workers}
+        </p>
 
     </body>
 </html>

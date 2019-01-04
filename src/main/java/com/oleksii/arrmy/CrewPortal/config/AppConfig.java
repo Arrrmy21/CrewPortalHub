@@ -46,6 +46,7 @@ public class AppConfig {
 
         properties.put(NON_CONTEXTUAL_LOB_CREATION, true);
         properties.put(DIALECT, env.getProperty("spring.jpa.database-platform"));
+
         factoryBean.setHibernateProperties(properties);
         factoryBean.setPackagesToScan("com.oleksii.arrmy.CrewPortal.model");
 
