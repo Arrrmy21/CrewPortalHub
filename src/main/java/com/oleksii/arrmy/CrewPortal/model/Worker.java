@@ -10,12 +10,26 @@ public class Worker {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private String location;
     private int phoneNumber;
 
     private int age;
     private int yearIncome;
     private String maritalStatus;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "worker_location")
+    private Location location;
+
+    public Worker() {
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
 
     public int getId() {
         return id;
@@ -31,14 +45,6 @@ public class Worker {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
     }
 
     public int getPhoneNumber() {

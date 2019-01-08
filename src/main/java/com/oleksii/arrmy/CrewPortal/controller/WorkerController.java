@@ -4,21 +4,34 @@ import com.oleksii.arrmy.CrewPortal.model.Worker;
 import com.oleksii.arrmy.CrewPortal.service.WorkerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
-@RestController
+//@RestController
+@Controller
 public class WorkerController {
 
     @Autowired
     private WorkerService workerService;
 
-    @PostMapping("/worker")
-    public String myMethod(@RequestBody Worker worker){
-        String respName = "ALOBL" + worker.getName();
-        return respName;
+    @RequestMapping(value = "/")
+    public String viweHello(Model model) {
+        return "mainPage";
     }
+
+
+    @RequestMapping(value = "/listA", method = RequestMethod.GET)
+    public ModelAndView viweWorkers(ModelMap model) {
+        model.addAttribute("workers", "Worker 1,2,3");
+        return new ModelAndView("list");
+    }
+
+
 
     @PostMapping("/worker/add")
     public ResponseEntity<?> save(@RequestBody Worker worker){
