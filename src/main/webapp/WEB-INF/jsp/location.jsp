@@ -9,6 +9,7 @@
     <body>
         <p>Location field</p>
 
+        <p>${workers}</p>
 
     </body>
 </html>

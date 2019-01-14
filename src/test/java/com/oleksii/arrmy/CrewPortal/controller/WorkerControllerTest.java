@@ -42,21 +42,21 @@ public class WorkerControllerTest {
     public void myMethod() {
     }
 
-    @Test
-    public void save() {
-
-        Worker controlWorker = new Worker();
-        controlWorker.setId(77);
-        controlWorker.setName("Alex");
-        controlWorker.setAge(99);
-
-        when(workerServiceMock.save(controlWorker)).thenReturn(77);
-
-        assertEquals("New Worker saved. Id:77", workerControllerMock.save(controlWorker).getBody());
-        assertEquals(HttpStatus.OK, workerControllerMock.save(controlWorker).getStatusCode());
-        verify(workerServiceMock, times(2)).save(controlWorker);
-
-    }
+//    @Test
+//    public void save() {
+//
+//        Worker controlWorker = new Worker();
+//        controlWorker.setId(77);
+//        controlWorker.setName("Alex");
+//        controlWorker.setAge(99);
+//
+//        when(workerServiceMock.save(controlWorker)).thenReturn(77);
+//
+//        assertEquals("New Worker saved. Id:77", workerControllerMock.save(controlWorker).getBody());
+//        assertEquals(HttpStatus.OK, workerControllerMock.save(controlWorker).getStatusCode());
+//        verify(workerServiceMock, times(2)).save(controlWorker);
+//
+//    }
 
     @Test
     public void get() {
