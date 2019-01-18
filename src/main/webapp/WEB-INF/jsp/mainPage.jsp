@@ -28,32 +28,20 @@
           <tr>
            <th>Name</th>
            <th>Phone number</th>
-           <th>Location</th>
+           <th>Location ID</th>
           </tr>
          </thead>
-         <tbody style="background:#ccc">
-         <c:forEach items="${listOfWorkers}" var="worker">
 
-          <c:if test="${!empty listOfWorkers}">
-           <c:forEach items="${worker}" var="worker">
+         <tbody style="background:#ccc">
+
+         <c:forEach var="worker" items="${listOfWorkers}">
            <tr>
-            <td><c:out value="${worker.id}" /></td>
-            <td><c:out value="${worker.name}" /></td>
-            <td><c:out value="${worker.age}" /></td>
+            <td>${worker.name}</td>
+            <td>${worker.phoneNumber}</td>
+            <td> <a href = "worker/location/${worker.location.locationID}"> ${worker.location.locationID} </a> </td>
            </tr>
            </c:forEach>
-          </c:if>
 
-          <c:if test="${empty worker.location}">
-           <tr>
-            <td><c:out value="${worker.location.city}" /></td>
-            <td><c:out value="${worker.location.country}" /></td>
-            <td><c:out value="${worker.age}" /></td>
-
-           </tr>
-          </c:if>
-
-         </c:forEach>
          </tbody>
         </table>
 

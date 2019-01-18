@@ -11,6 +11,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 //@RestController
@@ -21,15 +22,17 @@ public class WorkerController {
     private WorkerService workerService;
 
     @RequestMapping(value = "/")
-    public String showMainPage(ModelAndView model) {
+    public String showMainPage(Model model) {
 
         List<Worker> listOfWorkers = workerService.list();
-        model.addObject("listOfWorkers", listOfWorkers);
+
+        model.addAttribute("listOfWorkers", listOfWorkers);
         return "mainPage";
     }
 
-    @RequestMapping(value = "/location", method = RequestMethod.GET)
-    public ModelAndView location(ModelMap model) {
+    @GetMapping(value = "/location/{locationId}")
+    public ModelAndView getLocationOfWorkerById(@PathVariable("locationId") int locationId, ModelMap model) {
+
 
         model.addAttribute("workers", "Worker 1,2,3");
         return new ModelAndView("location");

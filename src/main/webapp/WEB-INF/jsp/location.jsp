@@ -7,9 +7,19 @@
         </title>
     </head>
     <body>
-        <p>Location field</p>
+        <p>Location field </p>
 
-        <p>${workers}</p>
+        <table>
+            <thead>
+                <tr>
+                    <th> Country </th>
+                    <th> City </th>
+                    <th> Reception phone </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <
 
     </body>
 </html>

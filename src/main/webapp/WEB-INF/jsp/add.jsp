@@ -14,8 +14,11 @@
            <p><input type="text" name = "name" placeholder="name">
            <p><input type="text" name = "age" placeholder="age">
            <p><input type="text" name = "phoneNumber" placeholder="+380999">
+
            <p><input type="text" name = "location.city" placeholder="city">
            <p><input type="text" name = "location.country" placeholder="country">
+           <p><input type="text" name = "location.number" placeholder="reception phone">
+
            <p><input type="text" name = "yearIncome" placeholder="year income">
            <p><input type="text" name = "martialStatus" placeholder="martial status">
 
@@ -28,7 +31,6 @@
             <input type="submit" value = "Main page">
         </form>
 
-
-        <p>Msg: ${attribute}</p>
     </body>
 </html>
+

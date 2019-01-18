@@ -7,7 +7,7 @@ public class Location {
 
     private String country;
     private String city;
-    private int number;
+    private int receptionPhone;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,11 +41,11 @@ public class Location {
         this.city = city;
     }
 
-    public int getNumber() {
-        return number;
+    public int getReceptionPhone() {
+        return receptionPhone;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public void setReceptionPhone(int receptionPhone) {
+        this.receptionPhone = receptionPhone;
     }
 }
