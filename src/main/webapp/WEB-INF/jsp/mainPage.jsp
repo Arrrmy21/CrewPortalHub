@@ -15,20 +15,14 @@
             <input type="submit" value = "add worker">
         </form>
 
-        <form action="/showWorkers">
-            <input type="submit" value = "show workers">
-        </form>
-
-        <form action="/location">
-            <input type="submit" value = "location">
-        </form>
-
         <table style="border: 1px solid; width: 100%; text-align:center">
          <thead style="background:#d3dce3">
           <tr>
            <th>Name</th>
            <th>Phone number</th>
            <th>Location ID</th>
+           <th>Tools</th>
+           <th>Tools</th>
           </tr>
          </thead>
 
@@ -36,9 +30,11 @@
 
          <c:forEach var="worker" items="${listOfWorkers}">
            <tr>
-            <td>${worker.name}</td>
+            <td> <a href = "worker/get/${worker.id}"> ${worker.name} </a> </td>
             <td>${worker.phoneNumber}</td>
-            <td> <a href = "worker/location/${worker.location.locationID}"> ${worker.location.locationID} </a> </td>
+            <td> <a href = "worker/location/${worker.id}"> workerId </a> </td>
+            <td> <a href = "worker/update/${worker.id}"> update </a> </td>
+            <td> <a href = "worker/remove/${worker.id}"> remove </a> </td>
            </tr>
            </c:forEach>
 

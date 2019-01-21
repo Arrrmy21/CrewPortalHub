@@ -9,9 +9,14 @@
     </head>
 
     <body>
-        <form action="/worker/add" method = "post" >
-          <p>Fill in:</p>
-           <p><input type="text" name = "name" placeholder="name">
+
+
+        <form action="/worker/update/{id}" method = "post" >
+          <p>Edit worker's info: </p>
+          <p>ID: ${id}</p>
+           <p><input type="text" name = "id" placeholder="id">
+
+           <p><input type="text" name = "name" placeholder="name" >
            <p><input type="text" name = "age" placeholder="age">
            <p><input type="text" name = "phoneNumber" placeholder="+380999">
 

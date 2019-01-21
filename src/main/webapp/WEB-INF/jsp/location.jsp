@@ -8,18 +8,13 @@
     </head>
     <body>
         <p>Location field </p>
+            <p> Country: ${location.country} </p>
+            <p> City: ${location.city} </p>
+            <p> Reception phone: ${location.receptionPhone} </p>
 
-        <table>
-            <thead>
-                <tr>
-                    <th> Country </th>
-                    <th> City </th>
-                    <th> Reception phone </th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <
+        <form action="/">
+            <input type="submit" value = "Main page">
+        </form>
 
     </body>
 </html>

@@ -58,22 +58,22 @@ public class WorkerControllerTest {
 //
 //    }
 
-    @Test
-    public void get() {
-
-        String workerName = "workerGetMethod";
-        Worker worker = new Worker();
-        worker.setId(44);
-        worker.setName(workerName);
-
-        when(workerServiceMock.get(44)).thenReturn(worker);
-
-        assertEquals(44, workerControllerMock.get(44).getBody().getId());
-        assertEquals(workerName, workerControllerMock.get(44).getBody().getName());
-        assertEquals(HttpStatus.OK, workerControllerMock.get(44).getStatusCode());
-        verify(workerServiceMock, times(3)).get(44);
-
-    }
+//    @Test
+//    public void get() {
+//
+//        String workerName = "workerGetMethod";
+//        Worker worker = new Worker();
+//        worker.setId(44);
+//        worker.setName(workerName);
+//
+//        when(workerServiceMock.get(44)).thenReturn(worker);
+//
+//        assertEquals(44, workerControllerMock.get(44).getBody().getId());
+//        assertEquals(workerName, workerControllerMock.get(44).getBody().getName());
+//        assertEquals(HttpStatus.OK, workerControllerMock.get(44).getStatusCode());
+//        verify(workerServiceMock, times(3)).get(44);
+//
+//    }
 
     @Test
     public void list() {
@@ -104,32 +104,32 @@ public class WorkerControllerTest {
 
     }
 
-    @Test
-    public void update() {
+//    @Test
+//    public void update() {
+//
+//
+//        Worker workerToBeUpdated = new Worker();
+//        workerToBeUpdated.setId(112);
+//        workerToBeUpdated.setName("WorkerName");
+//
+//        assertEquals("Worker has been updated successfully.",
+//                workerControllerMock.update(113, workerToBeUpdated).getBody());
+//        assertEquals(HttpStatus.OK, workerControllerMock.update(113, workerToBeUpdated).getStatusCode());
+//
+//        verify(workerServiceMock, times(2)).update(113, workerToBeUpdated);
+//
+//    }
 
-
-        Worker workerToBeUpdated = new Worker();
-        workerToBeUpdated.setId(112);
-        workerToBeUpdated.setName("WorkerName");
-
-        assertEquals("Worker has been updated successfully.",
-                workerControllerMock.update(113, workerToBeUpdated).getBody());
-        assertEquals(HttpStatus.OK, workerControllerMock.update(113, workerToBeUpdated).getStatusCode());
-
-        verify(workerServiceMock, times(2)).update(113, workerToBeUpdated);
-
-    }
-
-    @Test
-    public void delete() {
-
-        Worker controlWorker = new Worker();
-        controlWorker.setId(77);
-        controlWorker.setName("Alex");
-
-        assertEquals("Worker has been deleted successfully.", workerControllerMock.delete(77).getBody());
-        assertEquals(HttpStatus.OK, workerControllerMock.delete(77).getStatusCode());
-        verify(workerServiceMock, times(2)).delete(77);
-
-    }
+//    @Test
+//    public void delete() {
+//
+//        Worker controlWorker = new Worker();
+//        controlWorker.setId(77);
+//        controlWorker.setName("Alex");
+//
+//        assertEquals("Worker has been deleted successfully.", workerControllerMock.delete(77).getBody());
+//        assertEquals(HttpStatus.OK, workerControllerMock.delete(77).getStatusCode());
+//        verify(workerServiceMock, times(2)).delete(77);
+//
+//    }
 }

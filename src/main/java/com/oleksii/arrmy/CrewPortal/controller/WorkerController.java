@@ -1,5 +1,6 @@
 package com.oleksii.arrmy.CrewPortal.controller;
 
+import com.oleksii.arrmy.CrewPortal.model.Location;
 import com.oleksii.arrmy.CrewPortal.model.Worker;
 import com.oleksii.arrmy.CrewPortal.service.WorkerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,12 +31,13 @@ public class WorkerController {
         return "mainPage";
     }
 
-    @GetMapping(value = "/location/{locationId}")
-    public ModelAndView getLocationOfWorkerById(@PathVariable("locationId") int locationId, ModelMap model) {
+    @GetMapping(value = "worker/location/{id}")
+    public String getLocationOfWorkerById(@PathVariable("id") int workerId, Model model) {
 
-
-        model.addAttribute("workers", "Worker 1,2,3");
-        return new ModelAndView("location");
+        Worker worker = workerService.get(workerId);
+        Location location = worker.getLocation();
+        model.addAttribute("location", location);
+        return "location";
     }
 
 //    public ResponseEntity<?> save(@RequestBody Worker worker) {
@@ -60,10 +62,13 @@ public class WorkerController {
     }
 
     @GetMapping("/worker/get/{id}")
-    public ResponseEntity<Worker> get(@PathVariable("id") int id) {
+    public String get(@PathVariable("id") int id, Model model) {
 
         Worker worker = workerService.get(id);
-        return ResponseEntity.ok().body(worker);
+
+        model.addAttribute("worker", worker);
+
+        return "profile";
     }
 
     @GetMapping("/worker/list")
@@ -73,17 +78,36 @@ public class WorkerController {
         return ResponseEntity.ok().body(workers);
     }
 
-    @PutMapping("/worker/update/{id}")
-    public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody Worker worker) {
+    @PostMapping("/worker/update/{id}")
+    public String update(@PathVariable("id") int id, @ModelAttribute("worker") Worker worker, Model model) {
 
         workerService.update(id, worker);
-        return ResponseEntity.ok().body("Worker has been updated successfully.");
+
+        String responseMessage = "Worker has been updated successfully.";
+
+        model.addAttribute("message", responseMessage);
+
+        return "confirm";
     }
 
-    @DeleteMapping("/worker/remove/{id}")
-    public ResponseEntity<?> delete(@PathVariable("id") int id) {
+    @GetMapping("/worker/update/")
+    public String updatePage( Model model) {
+
+//        model.addAttribute("id", id);
+        return "update";
+    }
+
+
+
+    @RequestMapping("/worker/remove/{id}")
+    public String delete(@PathVariable("id") int id, Model model) {
+
         workerService.delete(id);
-        return ResponseEntity.ok().body("Worker has been deleted successfully.");
+
+        String message = "Worker has been deleted successfully.";
+        model.addAttribute("message", message);
+
+        return "confirm";
     }
 
     @RequestMapping(value = "/confirm")
