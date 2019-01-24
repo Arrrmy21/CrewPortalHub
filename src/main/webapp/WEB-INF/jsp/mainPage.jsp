@@ -21,8 +21,8 @@
            <th>Name</th>
            <th>Phone number</th>
            <th>Location ID</th>
-           <th>Tools</th>
-           <th>Tools</th>
+           <th width="20"> Tools</th>
+           <th width="20"> Tools</th>
           </tr>
          </thead>
 

@@ -26,6 +26,15 @@
             <input type="submit" value = "Main page">
         </form>
 
+        <form action="/worker/update/${worker.id}">
+            <input type="submit" value = "Edit worker">
+        </form>
+
+        <form action="/worker/remove/${worker.id}">
+            <input type="submit" value = "Delete worker">
+        </form>
+
+
     </body>
 </html>
 

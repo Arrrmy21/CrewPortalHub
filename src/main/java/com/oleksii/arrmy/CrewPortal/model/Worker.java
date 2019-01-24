@@ -2,7 +2,6 @@ package com.oleksii.arrmy.CrewPortal.model;
 
 import javax.persistence.*;
 
-
 @Entity
 public class Worker {
 
@@ -13,7 +12,7 @@ public class Worker {
     private int phoneNumber;
 
     private int age;
-    private int yearIncome;
+    private long yearIncome;
     private String maritalStatus;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -63,11 +62,11 @@ public class Worker {
         this.age = age;
     }
 
-    public int getYearIncome() {
+    public long getYearIncome() {
         return yearIncome;
     }
 
-    public void setYearIncome(int yearIncome) {
+    public void setYearIncome(long yearIncome) {
         this.yearIncome = yearIncome;
     }
 

@@ -9,22 +9,28 @@
     </head>
 
     <body>
+    <h4>Fill in: </h4>
         <form action="/worker/add" method = "post" >
-          <p>Fill in:</p>
-           <p><input type="text" name = "name" placeholder="name">
-           <p><input type="text" name = "age" placeholder="age">
-           <p><input type="text" name = "phoneNumber" placeholder="+380999">
+        <table>
+           <tr><td> Name: </td><td><input type="text" name = "name"/></td></tr>
+           <tr><td> Age: </td><td><input type="number" name = "age"/></td></tr>
+           <tr><td> Phone number: </td><td><input type="number" name = "phoneNumber"/ de></td></tr>
 
-           <p><input type="text" name = "location.city" placeholder="city">
-           <p><input type="text" name = "location.country" placeholder="country">
-           <p><input type="text" name = "location.receptionPhone" placeholder="reception phone">
+           <tr><td> City: </td><td><input type="text" name = "location.city"/></td></tr>
+           <tr><td> Country: </td><td><input type="text" name = "location.country"/></td></tr>
+           <tr><td> Reception phone: </td><td><input type="number" name = "location.receptionPhone"/></td></tr>
 
-           <p><input type="text" name = "yearIncome" placeholder="year income">
-           <p><input type="text" name = "maritalStatus" placeholder="martial status">
+           <tr><td> Year income: </td><td><input type="number" name = "yearIncome" min="0"/></td></tr>
+           <tr><td> Marital status: </td><td>
+           <select name = "maritalStatus">
+           <option> Single </option>
+           <option> Married </option>
+           </select>
 
-           <p><input type="submit" value="Enter"></p>
-
+           <tr><td><input type="submit" value="Enter"></p>
+        </table>
         </form>
+
     <p></p>
 
         <form action="/">

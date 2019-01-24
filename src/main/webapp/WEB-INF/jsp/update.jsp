@@ -10,11 +10,10 @@
 
     <body>
 
-
-        <form action="/worker/update/{id}" method = "post" >
           <p>Edit worker's info: </p>
           <p>ID: ${id}</p>
-           <p><input type="text" name = "id" placeholder="id">
+
+        <form action="/worker/update/${id}" method = "post" >
 
            <p><input type="text" name = "name" placeholder="name" >
            <p><input type="text" name = "age" placeholder="age">
@@ -25,7 +24,10 @@
            <p><input type="text" name = "location.receptionPhone" placeholder="reception phone">
 
            <p><input type="text" name = "yearIncome" placeholder="year income">
-           <p><input type="text" name = "maritalStatus" placeholder="martial status">
+           <p><select name = "maritalStatus" placeholder="martial status">
+            <option> Single </option>
+            <option> Married </option>
+           </select>
 
            <p><input type="submit" value="Enter"></p>
 

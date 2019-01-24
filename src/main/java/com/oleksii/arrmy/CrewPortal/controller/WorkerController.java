@@ -12,6 +12,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,8 +27,8 @@ public class WorkerController {
     public String showMainPage(Model model) {
 
         List<Worker> listOfWorkers = workerService.list();
-
         model.addAttribute("listOfWorkers", listOfWorkers);
+
         return "mainPage";
     }
 
@@ -52,6 +53,7 @@ public class WorkerController {
         int id = workerService.save(worker);
         String msg = "New Worker saved. Id:" + id;
         model.addAttribute("message", msg);
+
         return "confirm";
     }
 
@@ -78,10 +80,11 @@ public class WorkerController {
         return ResponseEntity.ok().body(workers);
     }
 
-    @PostMapping("/worker/update/{id}")
-    public String update(@PathVariable("id") int id, @ModelAttribute("worker") Worker worker, Model model) {
+    @PostMapping("/worker/update/{workerId}")
+//    public String update(@PathVariable("id") int id, @ModelAttribute(name = "worker") Worker worker, Model model) {
+    public String update(@ModelAttribute Worker worker, @PathVariable int workerId, Model model) {
 
-        workerService.update(id, worker);
+        workerService.update(workerId, worker);
 
         String responseMessage = "Worker has been updated successfully.";
 
@@ -90,14 +93,12 @@ public class WorkerController {
         return "confirm";
     }
 
-    @GetMapping("/worker/update/")
-    public String updatePage( Model model) {
+    @GetMapping("/worker/update/{id}")
+    public String updatePage(@PathVariable("id") int id, Model model) {
 
-//        model.addAttribute("id", id);
+        model.addAttribute("id", id);
         return "update";
     }
-
-
 
     @RequestMapping("/worker/remove/{id}")
     public String delete(@PathVariable("id") int id, Model model) {
