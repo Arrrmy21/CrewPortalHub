@@ -1,8 +1,12 @@
 package com.oleksii.arrmy.CrewPortal.model;
 
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import javax.persistence.*;
 
 @Entity
+@Cacheable()
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Worker {
 
     @Id
@@ -15,6 +19,7 @@ public class Worker {
     private long yearIncome;
     private String maritalStatus;
 
+    @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "worker_location")
     private Location location;

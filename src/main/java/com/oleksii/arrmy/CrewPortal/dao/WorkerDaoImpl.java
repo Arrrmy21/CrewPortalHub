@@ -5,6 +5,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,6 +27,7 @@ public class WorkerDaoImpl implements WorkerDAO {
         return worker.getId();
     }
 
+    @Cacheable
     @Override
     public Worker get(int id) {
         return sessionFactory.getCurrentSession().get(Worker.class, id);

@@ -4,6 +4,7 @@ import com.oleksii.arrmy.CrewPortal.dao.WorkerDAO;
 import com.oleksii.arrmy.CrewPortal.model.Worker;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,6 +23,7 @@ public class WorkerServiceImp implements WorkerService {
         return workerDAO.save(worker);
     }
 
+    @Cacheable
     @Override
     public Worker get(int id) {
         return workerDAO.get(id);

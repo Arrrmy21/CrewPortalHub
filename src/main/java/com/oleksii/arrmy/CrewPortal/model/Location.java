@@ -3,6 +3,7 @@ package com.oleksii.arrmy.CrewPortal.model;
 import javax.persistence.*;
 
 @Entity
+@Cacheable
 public class Location {
 
     private String country;

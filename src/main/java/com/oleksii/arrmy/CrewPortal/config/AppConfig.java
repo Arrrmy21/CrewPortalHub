@@ -47,6 +47,11 @@ public class AppConfig {
         properties.put(NON_CONTEXTUAL_LOB_CREATION, true);
         properties.put(DIALECT, env.getProperty("spring.jpa.database-platform"));
 
+        properties.put("hibernate.cache.use_second_level_cache", true);
+        properties.put("hibernate.cache.use_query_cache", true);
+        properties.put("hibernate.cache.region.factory_class", "org.hibernate.cache.ehcache.EhCacheRegionFactory");
+        properties.put("hibernate.cache.provider_configuration_file_resource_path", "ehcache.xml");
+
         factoryBean.setHibernateProperties(properties);
         factoryBean.setPackagesToScan("com.oleksii.arrmy.CrewPortal.model");
 
